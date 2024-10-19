@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interface</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+
+    body {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: 0px 0px 8px 8px;
+      padding: 16px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #aaaaaa;
+      width: 100%;
+      height: 50px;
+      padding: 14px;
+      max-width: 400px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #f8fafc;
+      border-radius: 0px 0px 8px 8px;
+      padding: 16px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .hello {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .date {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .section {
+      background-color: #f1f5f9;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      padding: 16px;
+    }
+
+    .carousel {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 8px;
+
+    }
+
+    .section h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #334155;
+    }
+
+    .section .card p {
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+      color: #1e293b;
+    }
+
+    .card {
+      margin: 4px;
+      background-color: #e2e8f0;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .attention {
+      margin-top: -18px;
+    }
+
+    .attention,
+    .events,
+    .pendings,
+    .alerts {
+      margin-bottom: 16px;
+    }
+
+    .attention p,
+    .pendings p,
+    .events p,
+    .alerts p {
+      font-size: 0.85rem;
+      color: #1e293b;
+    }
+
+    .accordion {
+      background-color: #e2e8f0;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 8px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <img src="https://img.icons8.com/ios/50/000000/menu--v1.png" alt="Menu">
+    <img src="https://img.icons8.com/ios/50/000000/user-male-circle.png" alt="User">
+  </header>
+  <main class="container">
+    <div class="hello">
+      <div>Olá, Diogo!</div>
+      <div class="date">08/10/2024</div>
+    </div>
+
+    <div class="section today">
+      <h3>Hoje</h3>
+      <div class="grid-layout">
+        <div class="card">
+          <p>S205<br>19h30 | I - 12<br>Faltas: 2/10<br>Nota: -/100</p>
+        </div>
+        <div class="card">
+          <p>P108<br>21h30 | I - 22<br>Faltas: 2/10<br>Nota: -/100</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="attention section">
+      <h3>Atenção</h3>
+      <p>Prova de P108 | Local: I - 10</p>
+    </div>
+
+    <div class="section pendings">
+      <h3>Pendências</h3>
+      <p>Renovar livro até dia 09/10/2024</p>
+    </div>
+
+    <div class="section events">
+      <h3>Eventos</h3>
+      <p>10/10/24 - 19h30 - Design Thinking</p>
+    </div>
+
+    <div class="section alerts">
+      <h3>Avisos</h3>
+      <p>Prazo para regularização de bolsa</p>
+    </div>
+
+    <div class="accordion">
+      <p>Próximas provas:</p>
+    </div>
+    <div class="accordion-content">
+      <p>Sem conteúdo por enquanto...</p>
+    </div>
+  </main>
+</body>
+
+</html>
