@@ -27,12 +27,18 @@
       font-family: Arial, sans-serif;
     }
 
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
     .grid-layout {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
+      background-color: transparent;
     }
-
 
     body {
       width: 100%;
@@ -65,6 +71,7 @@
       border-radius: 0px 0px 8px 8px;
       padding: 16px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     .header img {
@@ -109,7 +116,11 @@
       color: var(--dark-color);
     }
 
-    .section .card p {
+    .card :hover {
+      font-size: 15px;
+    }
+
+    .card p {
       margin-bottom: 4px;
       font-size: 0.85rem;
       color: var(--white-color);
@@ -123,6 +134,10 @@
       border-radius: 10px;
       margin: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .attention {
@@ -172,6 +187,39 @@
       border-radius: 8px;
       margin-top: 8px;
     }
+
+
+    .modal {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 20%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 300px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 18px;
+    }
+
+    .overlay {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
   </style>
 </head>
 
@@ -185,6 +233,7 @@
     </span>
   </header>
   <main class="container">
+
     <div class="hello">
       <div>Olá, Diogo!</div>
       <div class="date">08/10/2024</div>
@@ -193,19 +242,45 @@
     <div class="section today">
       <h3>Hoje</h3>
       <div class="grid-layout">
-        <div class="card">
-          <p>S205<br>19h30 | I - 12<br>Faltas: 2/10<br>Nota: -/100</p>
-        </div>
-        <div class="card">
-          <p>P108<br>21h30 | I - 22<br>Faltas: 2/10<br>Nota: -/100</p>
-        </div>
+        <button>
+          <div id="card_s205" class="card">
+            <p>S205<br>19h30 | I - 12<br>Faltas: 2/10<br>Nota: -/100</p>
+          </div>
+        </button>
+        <button>
+          <div id="card_p108" class="card">
+            <p>P108<br>21h30 | I - 22<br>Faltas: 2/10<br>Nota: -/100</p>
+          </div>
+        </button>
       </div>
       <div class="attention section">
         <h3>Atenção</h3>
         <p>Prova de P108 | Local: I - 10</p>
       </div>
     </div>
-
+    <div class="overlay"></div>
+    <div id="moda_s205" class="modal">
+      <h3>S205 - Interface Homem Máquina</h3>
+      <p>19h30 - Sala I-12</p>
+      <p>Faltas: 2/10</p>
+      <p>Nota: -/100</p>
+      <p>Professor: Rapahael</p>
+      <p>Material de Aula</p>
+      <ul>
+        <li>Slide Aula 1</li>
+        <li>Design Thinking</li>
+    </div>
+    <div id="modal_p108" class="modal">
+      <h3>P108 - Otimizações II</h3>
+      <p>19h30 - Sala I-22</p>
+      <p>Faltas: 2/10</p>
+      <p>Nota: -/100</p>
+      <p>Professor: Carlos</p>
+      <p>Material de Aula</p>
+      <ul>
+        <li>Slide Aula 1</li>
+        <li>Otimizações II</li>
+    </div>
 
     <div class="section pendings">
       <h3>Pendências</h3>
@@ -245,12 +320,34 @@
   <script>
     const accordion = document.querySelector('.accordion');
     const accordionContent = document.querySelector('.accordion-content');
-
+    const overlay = document.querySelector('.overlay');
+    const card_s205 = document.querySelector('#card_s205');
+    const card_p108 = document.querySelector('#card_p108');
+    const modal_s205 = document.querySelector('#moda_s205');
+    const modal_p108 = document.querySelector('#modal_p108');
+  
     accordion.addEventListener('click', () => {
       accordionContent.style.display = accordionContent.style.display === 'none' ? 'block' : 'none';
       accordion.querySelector('span').textContent = accordionContent.style.display === 'none' ? 'keyboard_arrow_down' : 'keyboard_arrow_up';
     });
+  
+    card_s205.addEventListener('click', () => {
+      modal_s205.style.display = 'block';
+      overlay.style.display = 'block';
+    });
+  
+    card_p108.addEventListener('click', () => {
+      modal_p108.style.display = 'block';
+      overlay.style.display = 'block';
+    });
+  
+    overlay.addEventListener('click', () => {
+      modal_s205.style.display = 'none';
+      modal_p108.style.display = 'none';
+      overlay.style.display = 'none';
+    });
   </script>
+  
 </body>
 
 </html>
