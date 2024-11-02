@@ -5,234 +5,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-  <title>Interface</title>
-  <style>
-    :root {
-      --primary-color: #2690E0;
-      --secondary-color: #E09626;
-      --tertiary-color: #4378a1;
-      --white-color: #FFFFFF;
-      --neutral-color-50: #F9FAFB;
-      --neutral-color-100: #F1F5F9;
-      --neutral-color-200: #E2E8F0;
-      --neutral-color-300: #CBD5E1;
-      --neutral-color-900: #1A202C;
-      --dark-color: #000 --shadow-color: rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
-
-    .grid-layout {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      background-color: transparent;
-    }
-
-    body {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 16px;
-      background-color: var(--white-color);
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: var(--primary-color);
-      width: 100%;
-      height: 50px;
-      padding: 14px;
-      max-width: 400px;
-    }
-
-    .header span {
-      color: var(--white-color);
-    }
-
-    .container {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      background-color: var(--neutral-color-50);
-      border-radius: 0px 0px 8px 8px;
-      padding: 16px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-
-    .header img {
-      width: 30px;
-      height: 30px;
-      color: var(--white-color);
-    }
-
-    .hello {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .date {
-      color: var(--dark-color);
-      font-size: 0.9rem;
-    }
-
-    .section {
-      background-color: var(--neutral-color-100);
-      border-radius: 8px;
-      margin-bottom: 16px;
-      padding: 16px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .carousel {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px;
-      border-radius: 8px;
-      margin: 8px;
-    }
-
-    .section h3 {
-      margin-bottom: 8px;
-      font-size: 1rem;
-      color: var(--dark-color);
-    }
-
-    .card :hover {
-      font-size: 15px;
-    }
-
-    .card p {
-      margin-bottom: 4px;
-      font-size: 0.85rem;
-      color: var(--white-color);
-    }
-
-    .card {
-      margin: 4px;
-      background-color: var(--tertiary-color);
-      padding: 10px;
-      text-align: center;
-      border-radius: 10px;
-      margin: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .attention {
-      box-shadow: none;
-      margin: 0px;
-
-    }
-
-    .attention,
-    .events,
-    .pendings,
-    .alerts {
-      margin-bottom: 16px;
-    }
-
-    .attention p,
-    .pendings p,
-    .events p,
-    .alerts p {
-      font-size: 0.85rem;
-      color: var(--dark-color);
-    }
-
-    .accordion {
-      background-color: var(--neutral-color-50);
-      padding: 8px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .accordion-content {
-      display: none;
-      padding: 8px 0;
-
-    }
-
-    .accordion-card {
-      display: flex;
-      padding: 8px;
-      justify-content: space-between;
-      background-color: var(--neutral-color-100);
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 8px;
-    }
-
-
-    .modal {
-      display: none;
-      position: absolute;
-      z-index: 2;
-      left: 50%;
-      top: 20%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      max-width: 300px;
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 18px;
-    }
-
-    .overlay {
-      display: none;
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-  </style>
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <header class="header">
-    <span class="material-symbols-outlined">
-      menu
-    </span>
-    <span class="material-symbols-outlined">
-      account_circle
-    </span>
+    
+    <button onclick="toggleMenu()">
+      <span class="material-symbols-outlined">
+        menu
+      </span>
+    </button>
+    <button id="profile" class="profile">
+      <span class="material-symbols-outlined">
+        account_circle
+      </span>
+    </button>
   </header>
   <main class="container">
+    <div id="sidebar" class="sidebar">
+      <nav>
+        <ul>
+          <li onclick="toggleMenu()">
+            <a href="main.html">
+              <span class="material-symbols-outlined">
+                home
+              </span>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="eventos.html">
+              <span class="material-symbols-outlined">
+                event
+              </span>
+              Eventos
+            </a>
+          </li>
+      </nav>
+    </div>
 
     <div class="hello">
       <div>Olá, Diogo!</div>
@@ -317,37 +129,7 @@
       </div>
     </div>
   </main>
-  <script>
-    const accordion = document.querySelector('.accordion');
-    const accordionContent = document.querySelector('.accordion-content');
-    const overlay = document.querySelector('.overlay');
-    const card_s205 = document.querySelector('#card_s205');
-    const card_p108 = document.querySelector('#card_p108');
-    const modal_s205 = document.querySelector('#moda_s205');
-    const modal_p108 = document.querySelector('#modal_p108');
-  
-    accordion.addEventListener('click', () => {
-      accordionContent.style.display = accordionContent.style.display === 'none' ? 'block' : 'none';
-      accordion.querySelector('span').textContent = accordionContent.style.display === 'none' ? 'keyboard_arrow_down' : 'keyboard_arrow_up';
-    });
-  
-    card_s205.addEventListener('click', () => {
-      modal_s205.style.display = 'block';
-      overlay.style.display = 'block';
-    });
-  
-    card_p108.addEventListener('click', () => {
-      modal_p108.style.display = 'block';
-      overlay.style.display = 'block';
-    });
-  
-    overlay.addEventListener('click', () => {
-      modal_s205.style.display = 'none';
-      modal_p108.style.display = 'none';
-      overlay.style.display = 'none';
-    });
-  </script>
-  
+  <script src="scripts.js"></script>
 </body>
 
 </html>
